@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="SOQL Query Manager" icon-name="custom:custom63">
+        <div class="slds-p-around_medium">
+            <lightning-textarea label="Enter SOQL Query" value={soqlQuery}> </lightning-textarea>
+
+            <lightning-button label="Run Query" variant="brand" onclick={executeQuery} class="slds-m-top_small"></lightning-button>
+            <template if:true={queryResults}>
+                <lightning-datatable data={queryResults} columns={columns} key-field="Id"></lightning-datatable>
+            </template>
+            <template if:false={queryResults}>
+                <p>No results found or query not executed.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
